@@ -1,4 +1,4 @@
-# vue-crash-course
+# share-todo APP
 
 ## Project setup
 ```
