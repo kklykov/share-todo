@@ -8,9 +8,7 @@
     <div class="loader" v-if="loading"><Loader ></Loader></div>
     <div v-else>
       <AddTodo @add-todo="addTodo" />
-      <Select v-bind:options="options" v-model="filter" />
-      <TodoList v-if="filteredTodos.length" v-bind:todos="filteredTodos" @remove-todo="removeTodo" />
-      <p v-else>No todos!</p>
+      <TodoList v-bind:todos="filteredTodos" @remove-todo="removeTodo" />
     </div>
   </div>
 </template>
@@ -19,7 +17,6 @@
 import TodoList from "@/components/TodoList";
 import AddTodo from "@/components/AddTodo";
 import Loader from "@/components/loaders/Loader";
-import Select from "@/components/select/Select";
 
 export default {
   name: "App",
@@ -49,7 +46,6 @@ export default {
     TodoList,
     AddTodo,
     Loader,
-    Select
   },
   computed: {
     filteredTodos() {

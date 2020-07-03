@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li v-bind:class="{blurry: todo.key == -1}">
     <span>
       <input
         type="checkbox"
@@ -7,6 +7,7 @@
         v-bind:class="{checked: todo.completed}"
         style="display: none;"
         v-bind:id="'checkbox-'+todo.id"
+        :disabled="todo.key == -1"
       />
       <label v-bind:for="'checkbox-'+todo.id" class="check">
         <svg width="18px" height="18px" viewBox="0 0 18 18">
@@ -17,10 +18,9 @@
         </svg>
       </label>
       <strong>{{ index + 1 }}</strong>
-      <span v-bind:class="{strike: todo.completed}">{{ todo.title | uppercase }}</span>
+      <span v-bind:class="{text: todo.title, strike: todo.completed}">{{ todo.title | uppercase }}</span>
     </span>
-    <!-- <button class="rm" v-on:click="$emit('remove-todo', todo.id)">Remove</button> -->
-    <RemoveButton @clicked="removeTodo(todo.id)"></RemoveButton>
+    <RemoveButton @clicked="removeTodo(todo.id)" :disabled="todo.key == -1"></RemoveButton>
   </li>
 </template>
 
@@ -89,10 +89,21 @@ li {
     inset 1px 2px 2px -1px rgba(52, 71, 88, 1);
   box-shadow: 1px 4px 3px -2px rgba(26, 37, 48, 0.9),
     inset 1px 2px 2px -1px rgba(52, 71, 88, 1);
+
+
 }
 
 li:hover {
   background-color: #1d3946;
+}
+
+li.blurry {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+li.blurry:hover {
+  background-color: #2c3f51;
 }
 
 .check {
@@ -104,6 +115,7 @@ li:hover {
   -webkit-tap-highlight-color: transparent;
   transform: translate3d(0, 0, 0);
 }
+
 
 .check:before {
   content: "";
