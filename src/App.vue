@@ -34,6 +34,7 @@ body {
   font-family: "Roboto", sans-serif;
   background: #1b2126;
   color: #e3fbff;
+  font-size: 16px;
 }
 
 hr {

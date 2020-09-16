@@ -1,15 +1,12 @@
 <template>
   <header>
-    <div class="title">ShareTodo</div>
-    <div class="options">Options</div>
+    <div class="title"><span>Share</span>Todo</div>
   </header>
 </template>
 
 <script>
 export default {};
 </script>
-
-
 
 <style scoped>
 @font-face {
@@ -35,21 +32,20 @@ header {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 45px;
+  height: 60px;
   background-color: #262e35;
 }
 
-.title {
+.title, .title > span {
   cursor: pointer;
   margin-left: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   letter-spacing: 1px;
   font-family: "MrRobot", "Roboto", sans-serif;
-  text-shadow: 0 0 1px #04819e, 0 0 2px #04819e, 0 0 3px #04819e,
-    0 0 4px #04819e, 0 0 5px #04819e;
+  text-shadow: 0 0 1px #04819e, 0 0 2px #04819e, 0 0 4px #04819e, 0 0 5px #04819e;
 }
 
-.title:hover {
+.title:hover > span {
   -webkit-animation: glow 2s ease-in-out infinite alternate;
   -moz-animation: glow 2s ease-in-out infinite alternate;
   animation: glow 2s ease-in-out infinite alternate;
